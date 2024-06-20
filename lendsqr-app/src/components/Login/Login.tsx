@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, NavLink } from "react-router-dom";
 import "./Login.scss";
-import wallpaper from "../pablo-sign-in 1.svg";
+import wallpaper from "../wallpaper.svg";
 import logo from "../Group.svg";
 
 function Login() {
