@@ -6,6 +6,7 @@ import ErrorPage from "./components/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login />,
     errorElement: <ErrorPage />,
   },
   // {
