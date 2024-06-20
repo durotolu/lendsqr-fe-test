@@ -15,6 +15,16 @@ function Login() {
           <img src={wallpaper} alt="wallpaper" />
         </div>
       </div>
+      <div className="form">
+        <div>
+          <h1>Welcome!</h1>
+          {/* <span>Enter details to login.</span> */}
+          <input placeholder="Email" />
+          <input placeholder="Password" />
+          <div className="forgot">Forgot PASSWORD?</div>
+          <button>LOG IN</button>
+        </div>
+      </div>
     </div>
   );
 }
