@@ -1,14 +1,11 @@
 .sidebar {
   max-width: 263px;
-  // height: 1574px;
-  padding-top: 30px;
   padding-bottom: 20px;
   box-shadow: 0px 5px 20px 0px #0000000A;
 
   .row-option {
     display: flex;
     align-items: center;
-    // justify-content: space-evenly;
     color: #213F7D;
     padding-left: 30px;
     padding-right: 30px;
@@ -24,7 +21,7 @@
   }
 
   .switch {
-    margin-top: 100px;
+    margin-top: 40px;
   }
 
   .version {
@@ -49,7 +46,6 @@
   .logout {
     opacity: 1;
     border-top: 1px solid rgba(33, 63, 125, .1);
-    // border-top: 1px solid #213F7D;
     padding-top: 20px;
     margin-bottom: 40px;
   }
