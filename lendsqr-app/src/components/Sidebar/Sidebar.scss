@@ -1,7 +1,8 @@
 .sidebar {
-  max-width: 223px;
+  max-width: 263px;
   // height: 1574px;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
   box-shadow: 0px 5px 20px 0px #0000000A;
 
   .row-option {
@@ -9,6 +10,8 @@
     align-items: center;
     // justify-content: space-evenly;
     color: #213F7D;
+    padding-left: 30px;
+    padding-right: 30px;
 
     span {
       margin: 0 10px;
@@ -24,6 +27,15 @@
     margin-top: 100px;
   }
 
+  .version {
+    font-family: Work Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.08px;
+    text-align: left;
+
+  }
+
   .dashbord {
     margin-top: 52px;
     font-family: Work Sans;
@@ -32,6 +44,14 @@
     line-height: 18.77px;
     text-align: left;
     opacity: 0.6;
+  }
+
+  .logout {
+    opacity: 1;
+    border-top: 1px solid rgba(33, 63, 125, .1);
+    // border-top: 1px solid #213F7D;
+    padding-top: 20px;
+    margin-bottom: 40px;
   }
 
   .item {
@@ -43,6 +63,13 @@
     line-height: 18.77px;
     text-align: left;
     opacity: 0.6;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .active {
+    background-color: rgba(57, 205, 204, .2);
+    border-left: 3px solid #39CDCC;
   }
 
   .section-head {
@@ -53,5 +80,6 @@
     text-align: left;
     color: #545F7D;
     margin-top: 40px;
+    padding: 30px;
   }
 }
