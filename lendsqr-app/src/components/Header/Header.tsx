@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, NavLink } from "react-router-dom";
 import "./Header.scss";
-import logo from "../logo.svg";
-import search_icon from "../search-icon.svg";
-import notification from "../notification.svg";
-import avatar from "../avatar.svg";
-import dropdown from "../dropdown.svg";
+import logo from "../../icons/logo.svg";
+import search_icon from "../../icons/search-icon.svg";
+import notification from "../../icons/notification.svg";
+import avatar from "../../icons/avatar.svg";
+import dropdown from "../../icons/dropdown.svg";
 
 function Header() {
   return (

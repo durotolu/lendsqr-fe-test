@@ -1,0 +1,57 @@
+.sidebar {
+  max-width: 223px;
+  // height: 1574px;
+  padding: 30px;
+  box-shadow: 0px 5px 20px 0px #0000000A;
+
+  .row-option {
+    display: flex;
+    align-items: center;
+    // justify-content: space-evenly;
+    color: #213F7D;
+
+    span {
+      margin: 0 10px;
+      font-family: Work Sans;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 18.77px;
+      text-align: left;
+    }
+  }
+
+  .switch {
+    margin-top: 100px;
+  }
+
+  .dashbord {
+    margin-top: 52px;
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.77px;
+    text-align: left;
+    opacity: 0.6;
+  }
+
+  .item {
+    margin-top: 10px;
+    padding: 12px 0;
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.77px;
+    text-align: left;
+    opacity: 0.6;
+  }
+
+  .section-head {
+    font-family: Work Sans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.08px;
+    text-align: left;
+    color: #545F7D;
+    margin-top: 40px;
+  }
+}

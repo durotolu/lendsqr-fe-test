@@ -4,6 +4,10 @@ header {
   justify-content: space-between;
   padding: 30px;
   align-items: center;
+  position: fixed;
+  width: calc(100vw - 80px);
+  z-index: 3;
+  background: white;
   
   div {
     align-items: center;
@@ -34,6 +38,10 @@ header {
     padding: 0px;
     gap: 0px;
     opacity: 0px;
+
+    img {
+      width: 100%;
+    }
   }
 
 
