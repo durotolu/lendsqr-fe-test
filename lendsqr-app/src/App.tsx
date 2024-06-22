@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         <Header />
         <div style={{display: "flex", paddingTop: "108px"}}>
           <Sidebar />
-          <div style={{padding: "60px"}}><Dashboard /></div>
+          <div style={{padding: "60px", width: "100%" }}><Dashboard /></div>
         </div>
       </div>
     ),

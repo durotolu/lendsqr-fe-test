@@ -1,0 +1,50 @@
+.table {
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 3px 5px 20px 0px #0000000A;
+  border-collapse: collapse;
+  color: #545F7D;
+  border: 1px solid #213F7D0F;
+
+  table {
+    font-family: arial, sans-serif;
+    width: 100%;
+
+    .table-header {
+      text-transform: uppercase;
+      font-family: Work Sans;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 14.08px;
+      text-align: left;
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      height: 16px;
+
+      img {
+        margin-left: 10px;
+      }
+    }
+
+    td {
+      border-bottom: 1px solid #dddddd;
+      text-align: left;
+      padding: 24px 0;
+      font-family: Work Sans;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.42px;
+      text-align: left;
+    }
+    
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-between;
+  }
+}
