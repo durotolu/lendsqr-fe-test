@@ -1,5 +1,4 @@
 import "./UsersCard.scss";
-// import users_normal from "../../icons/users-normal.svg";
 
 function UserCard({
   icon,
