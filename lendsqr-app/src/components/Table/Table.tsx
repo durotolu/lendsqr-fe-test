@@ -1,8 +1,8 @@
 import "./Table.scss";
 import filter from "../../icons/filter-results-button.svg";
 import grab from "../../icons/more.svg";
-import Actions from "../ActionsModal/ActionsModal";
-import Filter from "../Filter/Filter";
+import Actions from "./ActionsModal/ActionsModal";
+import Filter from "./Filter/Filter";
 
 function Table() {
   return (
