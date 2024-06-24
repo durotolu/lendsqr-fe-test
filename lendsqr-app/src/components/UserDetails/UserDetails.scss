@@ -1,0 +1,160 @@
+.details-container {
+  width: 100%;
+  color: #213F7D;
+
+  button {
+    display: flex;
+    gap: 13px;
+    border: none;
+    background-color: initial;
+    align-items: center;
+    padding: 0;
+  }
+
+  .user-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-family: Work Sans;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 28.15px;
+      text-align: left;
+      margin: 0;
+    }
+
+    .action-user {
+      gap: 20px;
+      display: flex;
+
+      button {
+        border-radius: 8px;
+        border: 1px;
+        padding: 12px 20px;
+        font-family: Work Sans;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16.42px;
+        text-align: center;
+        box-sizing: border-box;
+        text-transform: uppercase;
+
+      }
+
+      .filter-button {
+        border: 1px solid rgba(57, 205, 204, 1);
+        color: rgba(57, 205, 204, 1);
+        background: rgba(255, 255, 255, 1);
+      }
+      .reset-button {
+        border: 1px solid rgba(228, 3, 59, 1);
+        background: rgba(255, 255, 255, 1);
+        color: rgba(228, 3, 59, 1);
+      }
+    }
+
+  }
+
+  .details {
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+
+    .details-header {
+      display: flex;
+      padding: 30px;
+      padding-bottom: 51px;
+
+      .details-header-right {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-left: 20px;
+      }
+
+      .details-header-right-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .top-text {
+        font-family: Work Sans;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 25.81px;
+        text-align: left;
+        color: rgba(33, 63, 125, 1);
+      }
+
+      .bottom-text-code {
+        font-family: Work Sans;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.42px;
+        text-align: left;
+      }
+
+      .bottom-text-account {
+        font-family: Work Sans;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.08px;
+        text-align: left;
+      }
+
+      .star-container {
+        border-left: 1px solid rgba(84, 95, 125, .2);
+        border-right: 1px solid rgba(84, 95, 125, .2);
+        padding: 0 30px;
+        height: 80px;
+
+        .stars {
+          gap: 4px;
+          display: flex;
+        }
+
+        .tier-text {
+          font-family: Work Sans;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 16.42px;
+          text-align: left;
+        }
+      }
+    }
+
+    nav {
+      padding: 0 36px;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(0, 0, 0, 0.8);
+      font-family: SF Compact Text;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.09px;
+      text-align: center;
+
+      a {
+        padding: 0 25px;
+      }
+
+      .active-nav {
+        border-bottom: 2px solid rgba(57, 205, 204, 1);
+        padding-bottom: 10px;
+        color: rgba(57, 205, 204, 1);
+      }
+    }
+  }
+
+  .details-body {
+    border-radius: 4px;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  }
+}
