@@ -5,6 +5,7 @@
   border-collapse: collapse;
   color: #545F7D;
   border: 1px solid #213F7D0F;
+  position: relative;
 
   table {
     font-family: arial, sans-serif;
@@ -39,6 +40,30 @@
       font-weight: 400;
       line-height: 16.42px;
       text-align: left;
+      position: relative;
+
+      .status {
+        border-radius: 100px;
+        padding: 6px 12px;
+      }
+      
+      @mixin status-color($color-background, $color-text) {
+        background: $color-background;
+        color: $color-text;
+      }
+      
+      .active {
+        @include status-color(rgba(57, 205, 98, .06), rgba(57, 205, 98))
+      }
+      .inactive {
+        @include status-color(rgba(84, 95, 125, .06), rgba(84, 95, 125))
+      }
+      .pending {
+        @include status-color(rgba(233, 178, 0, .1), rgba(233, 178, 0));
+      }
+      .blacklisted {
+        @include status-color(rgba(228, 3, 59, .1), rgba(228, 3, 59,));
+      }
     }
     
   }

@@ -1,6 +1,8 @@
 import "./Table.scss";
 import filter from "../../icons/filter-results-button.svg";
 import grab from "../../icons/more.svg";
+import Actions from "../ActionsModal/ActionsModal";
+import Filter from "../Filter/Filter";
 
 function Table() {
   return (
@@ -40,33 +42,15 @@ function Table() {
         </tr>
         <tr>
           <td>Lendsqr</td>
-          <td>Alfreds Futterkiste</td>
-          <td>adedeji@lendsqr.com</td>
-          <td>08160780928</td>
-          <td>Apr 30, 2020 10:00 AM</td>
-          <td>Germany</td>
-          <td>
-            <img src={grab} alt="grab" />
-          </td>
-        </tr>
-        <tr>
-          <td>Lendsqr</td>
-          <td>Centro comercial Moctezuma</td>
-          <td>adedeji@lendsqr.com</td>
-          <td>08160780928</td>
-          <td>Apr 30, 2020 10:00 AM</td>
-          <td>Mexico</td>
-          <td>
-            <img src={grab} alt="grab" />
-          </td>
-        </tr>
-        <tr>
-          <td>Lendsqr</td>
           <td>Ernst Handel</td>
           <td>adedeji@lendsqr.com</td>
           <td>08160780928</td>
           <td>Apr 30, 2020 10:00 AM</td>
-          <td>Austria</td>
+          <td>
+            <div>
+              <span className="status pending">Pending</span>
+            </div>
+          </td>
           <td>
             <img src={grab} alt="grab" />
           </td>
@@ -77,9 +61,14 @@ function Table() {
           <td>adedeji@lendsqr.com</td>
           <td>08160780928</td>
           <td>Apr 30, 2020 10:00 AM</td>
-          <td>UK</td>
+          <td>
+            <div>
+              <span className="status inactive">Inactive</span>
+            </div>
+          </td>
           <td>
             <img src={grab} alt="grab" />
+            <Actions />
           </td>
         </tr>
         <tr>
@@ -88,7 +77,11 @@ function Table() {
           <td>adedeji@lendsqr.com</td>
           <td>08160780928</td>
           <td>Apr 30, 2020 10:00 AM</td>
-          <td>Canada</td>
+          <td>
+            <div>
+              <span className="status active">Active</span>
+            </div>
+          </td>
           <td>
             <img src={grab} alt="grab" />
           </td>
@@ -99,12 +92,17 @@ function Table() {
           <td>adedeji@lendsqr.com</td>
           <td>08160780928</td>
           <td>Apr 30, 2020 10:00 AM</td>
-          <td>Italy</td>
+          <td>
+            <div>
+              <span className="status blacklisted">Blacklisted</span>
+            </div>
+          </td>
           <td>
             <img src={grab} alt="grab" />
           </td>
         </tr>
       </table>
+      <Filter />
     </div>
   );
 }
