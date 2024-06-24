@@ -6,7 +6,7 @@ import users_active from "../../icons/users-active.svg";
 import users_loan from "../../icons/users-loan.svg";
 import users_savings from "../../icons/users-savings.svg";
 
-function Sidebar() {
+function Dashboard() {
   return (
     <div className="dashbord">
       <h2>Users</h2>
@@ -29,4 +29,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Dashboard;
