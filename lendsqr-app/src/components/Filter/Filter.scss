@@ -1,0 +1,74 @@
+.filter-modal {
+  background: #fff;
+  border-radius: 4px;
+  transition: all 5s ease-in-out;
+  z-index: 2;
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  width: 270px;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  padding: 30px 20px;
+
+  .filter-options {
+    gap: 20px;
+    display: grid;
+
+    div { 
+      label {
+        font-family: Work Sans;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16.42px;
+        text-align: left;
+        color: rgba(84, 95, 125, 1);
+      }
+      
+      .input-div {
+        height: 42px;
+        margin-top: 6px;
+      }
+
+      .input-field {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px 0px 0px 0px;
+        border: 1px solid rgba(33, 63, 125, .2);
+        padding: 0 20px;
+        height: 100%;
+        color: rgba(84, 95, 125, 1);
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .filter-footer {
+    padding-top: 30px;
+    gap: 14px;
+    display: flex;
+
+    button {
+      border-radius: 8px;
+      border: 1px;
+      padding: 12px 30px;
+      font-family: Work Sans;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 16.42px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .filter-button {
+      border: 1px solid rgba(57, 205, 204, 1);
+      background-color: rgba(57, 205, 204, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+    .reset-button {
+      border: 1px solid rgba(84, 95, 125, 1);
+      color: rgba(84, 95, 125, 1);
+      background: rgba(255, 255, 255, 1);
+    }
+  }
+}
