@@ -3,6 +3,7 @@ import back from "../../icons/back.svg";
 import star_filled from "../../icons/star-1.svg";
 import star_empty from "../../icons/star-2.svg";
 import avatar_placeholder from "../../icons/avatar-placeholder.svg";
+import UserDetailsInfo from "../UserDetailsInfo/UserDetailsInfo";
 
 function UserDetails() {
   return (
@@ -48,6 +49,7 @@ function UserDetails() {
           <a>App and System</a>
         </nav>
       </div>
+      <UserDetailsInfo />
     </div>
   );
 }
