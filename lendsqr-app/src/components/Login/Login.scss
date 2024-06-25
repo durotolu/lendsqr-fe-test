@@ -23,6 +23,11 @@
       padding-left: 67px;
     }
 
+  }
+  
+  .form {
+    padding-bottom: 100px;
+    
     h1 {
       height: 55px;
       opacity: 0px;
@@ -33,12 +38,18 @@
       letter-spacing: -0.04em;
       text-align: left;
       color: #213F7D;
-
+      margin: 0;
     }
-  }
 
-  .form {
-    padding-bottom: 100px;
+    span {
+      font-family: Avenir Next;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 27.32px;
+      text-align: left;
+      color: rgba(84, 95, 125, 1);
+      margin: 10px 0 60px 0;
+    }
 
     div {
       width: 100%;
@@ -53,13 +64,13 @@
     width: 50%;
 
     input {
-      width: 96%;
+      width: 100%;
       height: 50px;
       border-radius: 5px;
       border: 2px 0px 0px 0px;
       padding-left: 12px;
       margin-top: 24px;
-
+      box-sizing: border-box;
       border: 2px solid #545F7D26;
     }
     
@@ -85,10 +96,11 @@
       width: 100%;
       margin-top: 24px;
       margin-bottom: 30px;
+      background-color: white;
+      height: auto;
     }
 
     button {
-      // max-width: 447px;
       width: 100%;
       height: 48px;
       border-radius: 8px;
@@ -102,87 +114,11 @@
       text-align: center;
       color: #FFFFFF;
     }
+
+    button:disabled {
+      cursor: default;
+      opacity: .6;
+    }
   }
 
-	// max-width: 40em;
-	// margin: 0 auto;	
-
-
-	// @breakPoint: 500px;
-
-	// @marginRoundSection: 2rem 2rem;
-	
-	// @marginSideParagraphAndList: 2rem;
-
-	// header, footer {		
-	// 	justify-content: flex-end;
-	// 	.marginDisplaySection ();
-
-	// 	nav {
-	// 		a {
-	// 			margin: 1rem;
-	// 		}
-			
-	// 	}
-	// }
-
-	// section {
-
-	// 	@media (max-width: @breakPoint) {
-	// 		display: flex;
-	// 		flex-direction: column;
-	// 	}
-
-	// 	justify-content: space-between;
-	// 	.marginDisplaySection ();
-		
-	// 	div {
-	// 		width: 40em;
-
-	// 		@media (max-width: @breakPoint) {
-	// 			width: 20rem;
-	// 	}
-
-	// 		ul {
-	// 			margin-left: @marginSideParagraphAndList;
-
-	// 			li {
-	// 				margin: 0.3em 0;
-	// 			}
-	// 		}
-
-	// 		p {
-	// 			margin-right: @marginSideParagraphAndList;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	h2 {
-	// 		text-align: center;
-	// 		font-size: 1.3rem;
-	// 		margin-bottom: 0.5em;
-	// 	}
-
-	// 	table {
-	// 		width: 100%;
-
-	// 		th {
-	// 			text-align: left;
-	// 			.bold();
-	// 		}
-	// 	}
-
-
-		
-	// address {
-	// 	margin: @marginRoundSection;
-
-	// 	h2 {
-	// 		.bold();
-	// 	}
-
-	// 	p {
-	// 		margin: 0.5em 0;
-	// 	}
-	// }
 }

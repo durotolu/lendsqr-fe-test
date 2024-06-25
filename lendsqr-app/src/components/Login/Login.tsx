@@ -1,10 +1,31 @@
-import React from "react";
-import { Route, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 import wallpaper from "../../icons/wallpaper.svg";
 import logo from "../../icons/logo.svg";
 
 function Login() {
+  const [userData, setUserData] = useState<{ email: string; password: string }>(
+    { email: "", password: "" }
+  );
+  const navigate = useNavigate();
+
+  const login = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
+    localStorage.setItem("lendsqrUserEmail", userData.email);
+    const email = await localStorage.getItem("lendsqrUserEmail");
+    if (email === userData.email) {
+      navigate("/dashboard")
+    };
+  };
+
+  const onUserDataChange = (e: { target: { name: string; value: string } }) => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className="container">
       <div className="landing">
@@ -15,16 +36,34 @@ function Login() {
           <img src={wallpaper} alt="wallpaper" />
         </div>
       </div>
-      <div className="form">
+      <form className="form" onSubmit={login}>
         <div>
           <h1>Welcome!</h1>
-          {/* <span>Enter details to login.</span> */}
-          <input placeholder="Email" />
-          <input placeholder="Password" />
-          <div className="forgot">Forgot PASSWORD?</div>
-          <button>LOG IN</button>
+          <span>Enter details to login.</span>
+          <input
+            onChange={onUserDataChange}
+            name="email"
+            placeholder="Email"
+            type="text"
+          />
+          <input
+            onChange={onUserDataChange}
+            placeholder="Password"
+            name="password"
+            type="password"
+          />
+          <button type="button" className="forgot">
+            Forgot PASSWORD?
+          </button>
+          <button
+            type="submit"
+            disabled={!userData.email || !userData.password}
+            // onClick={login}
+          >
+            LOG IN
+          </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
