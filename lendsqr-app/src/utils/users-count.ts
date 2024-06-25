@@ -1,4 +1,6 @@
-const user_stats = (data: string | any[]) => {
+import UserItem from "../types";
+
+const user_stats = (data: UserItem[]) => {
   let total = data.length;
   let active = 0;
   let loans = 0;

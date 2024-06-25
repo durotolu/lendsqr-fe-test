@@ -1,6 +1,7 @@
+import UserItem from "../../../types";
 import "./UserDetailsInfo.scss";
 
-function UserDetailsInfo() {
+function UserDetailsInfo({ user }: { user: UserItem }) {
   return (
     <div className="details-body">
       <div className="row">
