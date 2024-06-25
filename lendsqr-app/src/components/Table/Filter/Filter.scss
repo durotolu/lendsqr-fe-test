@@ -2,20 +2,24 @@
   background: #fff;
   border-radius: 4px;
   transition: all 5s ease-in-out;
-  z-index: 2;
+  z-index: 4;
   box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
   position: absolute;
-  top: 60px;
-  left: 15px;
+  top: 25px;
+  left: -20px;
   width: 270px;
   border: 1px solid rgba(84, 95, 125, 0.14);
   padding: 30px 20px;
+  display: grid !important;
+  
 
   .filter-options {
     gap: 20px;
-    display: grid;
-
+    display: grid !important;
+    
     div { 
+      display: grid !important;
+
       label {
         font-family: Work Sans;
         font-size: 14px;
@@ -23,6 +27,7 @@
         line-height: 16.42px;
         text-align: left;
         color: rgba(84, 95, 125, 1);
+        text-transform: capitalize;
       }
       
       .input-div {
