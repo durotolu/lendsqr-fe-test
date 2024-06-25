@@ -32,7 +32,7 @@ function Dashboard() {
         bvn: "07060780922",
         gender: "Female",
         maritalStatus: "Single",
-        childCount: 0,
+        childCount: "None",
         residenceType: "Parent’s Apartment",
       },
       educationAndEmployment: {
@@ -85,7 +85,7 @@ function Dashboard() {
         bvn: "07060780922",
         gender: "Female",
         maritalStatus: "Single",
-        childCount: 0,
+        childCount: "3",
         residenceType: "Parent’s Apartment",
       },
       educationAndEmployment: {

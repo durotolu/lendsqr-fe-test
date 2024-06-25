@@ -18,7 +18,7 @@ interface PersonalInformation {
   bvn: string;
   gender: string;
   maritalStatus: string;
-  childCount: number;
+  childCount: string;
   residenceType: string;
 }
 
