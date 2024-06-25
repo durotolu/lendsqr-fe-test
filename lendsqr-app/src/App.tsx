@@ -21,17 +21,13 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "user",
+    path: "user/:userId",
     element: (
       <UsersPage>
         <UserDetails />
       </UsersPage>
     ),
   },
-  // {
-  //   path: "contacts/:contactId",
-  //   element: <Contact />,
-  // },
 ]);
 
 function App() {
