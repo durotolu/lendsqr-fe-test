@@ -11,6 +11,12 @@
     font-family: arial, sans-serif;
     width: 100%;
 
+    tr:last-child {
+      td {
+        border-bottom: none;
+      }
+    }
+
     .table-header {
       text-transform: uppercase;
       font-family: Work Sans;
@@ -18,6 +24,7 @@
       font-weight: 600;
       line-height: 14.08px;
       text-align: left;
+      position: relative;
 
       div {
         display: flex;
@@ -72,4 +79,19 @@
     display: flex;
     justify-content: space-between;
   }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.modal-button {
+  padding: 0;
+  border: 0;
+  background-color: inherit;
 }

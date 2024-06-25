@@ -3,47 +3,73 @@ import filter from "../../icons/filter-results-button.svg";
 import grab from "../../icons/more.svg";
 import Actions from "./ActionsModal/ActionsModal";
 import Filter from "./Filter/Filter";
+import UserItem from "../../types";
+import { useState } from "react";
 
-function Table() {
+const headers: string[] = [
+  "organization",
+  "Username",
+  "Email",
+  "Phone number",
+  "Date joined",
+  "Status",
+];
+
+function Table({ users }: { users: UserItem[] }) {
+  const [userActionOpen, setUserActionOpen] = useState<string | null>(null);
+  const [titleFilterOpen, setTitleFilterOpen] = useState<string | null>(null);
+
+  const closeModals = () => {
+    setUserActionOpen(null);
+    setTitleFilterOpen(null);
+  };
+
   return (
     <div className="table">
       <table>
         <thead>
           <tr>
-            <th className="table-header">
-              <div>
-                organization <img src={filter} alt="filter" />
-              </div>
-            </th>
-            <th className="table-header">
-              <div>
-                Username <img src={filter} alt="filter" />
-              </div>
-            </th>
-            <th className="table-header">
-              <div>
-                Email <img src={filter} alt="filter" />
-              </div>
-            </th>
-            <th className="table-header">
-              <div>
-                Phone number <img src={filter} alt="filter" />
-              </div>
-            </th>
-            <th className="table-header">
-              <div>
-                Date joined <img src={filter} alt="filter" />
-              </div>
-            </th>
-            <th className="table-header">
-              <div>
-                Status <img src={filter} alt="filter" />
-              </div>
-            </th>
+            {headers.map((header) => (
+              <th key={header} className="table-header">
+                <div>
+                  {header}
+                  <button
+                    onClick={() => setTitleFilterOpen(header)}
+                    className="modal-button"
+                  >
+                    <img src={filter} alt="filter" />
+                  </button>
+                  {header === titleFilterOpen && <Filter />}
+                </div>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.metaData.organization}</td>
+              <td>{user.personalInformation.fullName}</td>
+              <td>{user.personalInformation.email}</td>
+              <td>{user.personalInformation.phoneNumber}</td>
+              <td>{user.metaData.dateJoined}</td>
+              <td>
+                <div>
+                  <span className="status pending">{user.metaData.status}</span>
+                </div>
+              </td>
+              <td>
+                <button
+                  className="modal-button"
+                  onClick={() => setUserActionOpen(user.id)}
+                >
+                  <img src={grab} alt="grab" />
+                </button>
+                {userActionOpen === user.id && <Actions user={user} />}
+              </td>
+            </tr>
+          ))}
+          {/* <tr>
             <td>Lendsqr</td>
             <td>Ernst Handel</td>
             <td>adedeji@lendsqr.com</td>
@@ -71,7 +97,6 @@ function Table() {
             </td>
             <td>
               <img src={grab} alt="grab" />
-              <Actions />
             </td>
           </tr>
           <tr>
@@ -103,10 +128,12 @@ function Table() {
             <td>
               <img src={grab} alt="grab" />
             </td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
-      <Filter />
+      {(userActionOpen || titleFilterOpen) && (
+        <div className="modal-backdrop" onClick={closeModals}></div>
+      )}
     </div>
   );
 }
