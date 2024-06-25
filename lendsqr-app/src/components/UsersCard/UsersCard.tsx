@@ -7,7 +7,7 @@ function UserCard({
 }: {
   icon: string;
   name: string;
-  count: string;
+  count: number;
 }) {
   return (
     <div className="card">

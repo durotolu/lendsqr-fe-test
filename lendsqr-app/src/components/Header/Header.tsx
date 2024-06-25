@@ -1,5 +1,3 @@
-import React from "react";
-import { Route, NavLink } from "react-router-dom";
 import "./Header.scss";
 import logo from "../../icons/logo.svg";
 import search_icon from "../../icons/search-icon.svg";
