@@ -28,8 +28,12 @@ function UserDetails() {
           <button className="activate-button">Activate User</button>
         </div>
       </div>
-      <UserDetailsHeader />
-      {user && <UserDetailsInfo user={user} />}
+      {user && (
+        <>
+          <UserDetailsHeader user={user} />
+          <UserDetailsInfo user={user} />
+        </>
+      )}
     </div>
   );
 }

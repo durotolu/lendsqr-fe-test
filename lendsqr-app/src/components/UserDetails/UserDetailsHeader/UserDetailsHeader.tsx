@@ -2,16 +2,18 @@ import "./UserDetailsHeader.scss";
 import star_filled from "../../../icons/star-1.svg";
 import star_empty from "../../../icons/star-2.svg";
 import avatar_placeholder from "../../../icons/avatar-placeholder.svg";
+import UserItem from "../../../types";
 
-function UserDetailsHeader() {
+function UserDetailsHeader({ user }: { user: UserItem }) {
+  const { personalInformation, metaData } = user;
   return (
     <div className="details">
       <div className="details-header">
         <img src={avatar_placeholder} alt="Avatar placeholder" />
         <div className="details-header-right">
           <div className="details-header-right-section">
-            <div className="top-text">Grace Effiom</div>
-            <div className="bottom-text-code">LSQFf587g90</div>
+            <div className="top-text">{personalInformation.fullName}</div>
+            <div className="bottom-text-code">{metaData.code}</div>
           </div>
           <div className="star-container details-header-right-section">
             <div className="tier-text">User’s Tier</div>
@@ -22,8 +24,10 @@ function UserDetailsHeader() {
             </div>
           </div>
           <div className="details-header-right-section">
-            <div className="top-text">₦200,000.00</div>
-            <div className="bottom-text-account">9912345678/Providus Bank</div>
+            <div className="top-text">{metaData.accountBalance}</div>
+            <div className="bottom-text-account">
+              {metaData.accountNumber}/{metaData.bank}
+            </div>
           </div>
         </div>
       </div>
