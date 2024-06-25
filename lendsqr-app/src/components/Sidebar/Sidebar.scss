@@ -1,8 +1,16 @@
+$breakPointMobile: 600px;
+$breakPointTab: 950px;
+
 .sidebar {
   min-width: 283px;
   padding-top: 40px;
   padding-bottom: 20px;
   box-shadow: 0px 5px 20px 0px #0000000A;
+
+  @media (max-width: $breakPointTab) {
+    position: fixed;
+    background-color: white;
+  }
 
   .row-option {
     display: flex;
@@ -76,5 +84,26 @@
     color: #545F7D;
     margin-top: 28px;
     padding: 0 30px;
+  }
+}
+
+.sidebar-control {
+  position: absolute;
+  top: 150px;
+  left: 280px;
+  cursor: pointer;
+
+  @media (min-width: $breakPointTab) {
+    display: none;
+  }
+}
+
+.closed {
+  left: 0px;
+}
+
+.sidebar-in {
+  @media (min-width: $breakPointTab) {
+    display: none;
   }
 }

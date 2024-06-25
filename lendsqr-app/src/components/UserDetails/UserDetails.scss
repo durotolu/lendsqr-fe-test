@@ -1,3 +1,6 @@
+$breakPointMobile: 600px;
+$breakPointTab: 950px;
+
 .details-container {
   width: 100%;
   color: #213F7D;
@@ -28,6 +31,10 @@
     .action-user {
       gap: 20px;
       display: flex;
+
+      @media (max-width: $breakPointMobile) {
+        flex-direction: column;
+      }
 
       button {
         border-radius: 8px;

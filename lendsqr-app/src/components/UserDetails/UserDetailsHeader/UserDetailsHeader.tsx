@@ -9,7 +9,7 @@ function UserDetailsHeader({ user }: { user: UserItem }) {
   return (
     <div className="details">
       <div className="details-header">
-        <img src={avatar_placeholder} alt="Avatar placeholder" />
+        <img src={avatar_placeholder} className="avatar-placeholder" alt="Avatar placeholder" />
         <div className="details-header-right">
           <div className="details-header-right-section">
             <div className="top-text">{personalInformation.fullName}</div>

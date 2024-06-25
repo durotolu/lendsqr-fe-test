@@ -1,3 +1,5 @@
+$breakPointTab: 950px;
+
 .body-container {
   display: flex;
   padding-top: 100px;
@@ -6,4 +8,8 @@
 .child {
   padding: 60px;
   width: 100%;
+
+  @media (max-width: $breakPointTab) {
+    padding: 5px;
+  }
 }

@@ -23,118 +23,131 @@ import badge_percent from "../../icons/badge-percent.svg";
 import clipboard_list from "../../icons/clipboard-list.svg";
 import tire from "../../icons/tire 1.svg";
 import sign_out from "../../icons/sign-out.svg";
+import prev_btn from "../../icons/prev-btn.svg";
+import { useState } from "react";
 
 function Sidebar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   return (
     <div className="sidebar">
-      <div className="row-option switch">
-        <img src={briefcase} alt="briefcase icon" />
-        <span>Switch Organization</span>
-        <img src={select_dropdown} alt="select dropdown icon" />
-      </div>
-      <div className="row-option dashbord">
-        <img src={home} alt="home icon" />
-        <span>Dashboard</span>
-      </div>
-      <div>
-        <div className="section-head">CUSTOMERS</div>
-        <div className="row-option item active">
-          <img src={user_friends} alt="users icon" />
-          <span>Users</span>
-        </div>
-        <div className="row-option item">
-          <img src={users} alt="guarantors icon" />
-          <span>Guarantors</span>
-        </div>
-        <div className="row-option item">
-          <img src={sack} alt="loans icon" />
-          <span>Loans</span>
-        </div>
-        <div className="row-option item">
-          <img src={handshake} alt="decisions icon" />
-          <span>Decision Models</span>
-        </div>
-        <div className="row-option item">
-          <img src={piggy_bank} alt="savings icon" />
-          <span>Savings</span>
-        </div>
-        <div className="row-option item">
-          <img src={loan} alt="loan icon" />
-          <span>Loan Requests</span>
-        </div>
-        <div className="row-option item">
-          <img src={user_check} alt="whitelist icon" />
-          <span>Whitelist</span>
-        </div>
-        <div className="row-option item">
-          <img src={user_times} alt="karma icon" />
-          <span>Karma</span>
-        </div>
-      </div>
-      <div>
-        <div className="section-head">BUSINESSES</div>
-        <div className="row-option item">
-          <img src={briefcase_op} alt="organization icon" />
-          <span>Organization</span>
-        </div>
-        <div className="row-option item">
-          <img src={loan} alt="loan icon" />
-          <span>Loan Products</span>
-        </div>
-        <div className="row-option item">
-          <img src={bank} alt="savings icon" />
-          <span>Savings Products</span>
-        </div>
-        <div className="row-option item">
-          <img src={coins_solid} alt="fees icon" />
-          <span>Fees and Charges</span>
-        </div>
-        <div className="row-option item">
-          <img src={transaction} alt="transactions icon" />
-          <span>Transactions</span>
-        </div>
-        <div className="row-option item">
-          <img src={galaxy} alt="services icon" />
-          <span>Services</span>
-        </div>
-        <div className="row-option item">
-          <img src={user_cog} alt="service account icon" />
-          <span>Service Account</span>
-        </div>
-        <div className="row-option item">
-          <img src={scroll} alt="settlements icon" />
-          <span>Settlements</span>
-        </div>
-        <div className="row-option item">
-          <img src={chart_bar} alt="reports icon" />
-          <span>Reports</span>
-        </div>
-      </div>
-      <div>
-        <div className="section-head">SETTINGS</div>
-        <div className="row-option item">
-          <img src={sliders} alt="preferences icon" />
-          <span>Preferences</span>
-        </div>
-        <div className="row-option item">
-          <img src={badge_percent} alt="pricing icon" />
-          <span>Fees and Pricing</span>
-        </div>
-        <div className="row-option item">
-          <img src={clipboard_list} alt="audit icon" />
-          <span>Audit Logs</span>
-        </div>
-        <div className="row-option item">
-          <img src={tire} alt="systems icon" />
-          <span>Systems Messages</span>
-        </div>
-      </div>
+      {isSidebarOpen && (
+        <div>
+          <div className="row-option switch">
+            <img src={briefcase} alt="briefcase icon" />
+            <span>Switch Organization</span>
+            <img src={select_dropdown} alt="select dropdown icon" />
+          </div>
+          <div className="row-option dashbord">
+            <img src={home} alt="home icon" />
+            <span>Dashboard</span>
+          </div>
+          <div>
+            <div className="section-head">CUSTOMERS</div>
+            <div className="row-option item active">
+              <img src={user_friends} alt="users icon" />
+              <span>Users</span>
+            </div>
+            <div className="row-option item">
+              <img src={users} alt="guarantors icon" />
+              <span>Guarantors</span>
+            </div>
+            <div className="row-option item">
+              <img src={sack} alt="loans icon" />
+              <span>Loans</span>
+            </div>
+            <div className="row-option item">
+              <img src={handshake} alt="decisions icon" />
+              <span>Decision Models</span>
+            </div>
+            <div className="row-option item">
+              <img src={piggy_bank} alt="savings icon" />
+              <span>Savings</span>
+            </div>
+            <div className="row-option item">
+              <img src={loan} alt="loan icon" />
+              <span>Loan Requests</span>
+            </div>
+            <div className="row-option item">
+              <img src={user_check} alt="whitelist icon" />
+              <span>Whitelist</span>
+            </div>
+            <div className="row-option item">
+              <img src={user_times} alt="karma icon" />
+              <span>Karma</span>
+            </div>
+          </div>
+          <div>
+            <div className="section-head">BUSINESSES</div>
+            <div className="row-option item">
+              <img src={briefcase_op} alt="organization icon" />
+              <span>Organization</span>
+            </div>
+            <div className="row-option item">
+              <img src={loan} alt="loan icon" />
+              <span>Loan Products</span>
+            </div>
+            <div className="row-option item">
+              <img src={bank} alt="savings icon" />
+              <span>Savings Products</span>
+            </div>
+            <div className="row-option item">
+              <img src={coins_solid} alt="fees icon" />
+              <span>Fees and Charges</span>
+            </div>
+            <div className="row-option item">
+              <img src={transaction} alt="transactions icon" />
+              <span>Transactions</span>
+            </div>
+            <div className="row-option item">
+              <img src={galaxy} alt="services icon" />
+              <span>Services</span>
+            </div>
+            <div className="row-option item">
+              <img src={user_cog} alt="service account icon" />
+              <span>Service Account</span>
+            </div>
+            <div className="row-option item">
+              <img src={scroll} alt="settlements icon" />
+              <span>Settlements</span>
+            </div>
+            <div className="row-option item">
+              <img src={chart_bar} alt="reports icon" />
+              <span>Reports</span>
+            </div>
+          </div>
+          <div>
+            <div className="section-head">SETTINGS</div>
+            <div className="row-option item">
+              <img src={sliders} alt="preferences icon" />
+              <span>Preferences</span>
+            </div>
+            <div className="row-option item">
+              <img src={badge_percent} alt="pricing icon" />
+              <span>Fees and Pricing</span>
+            </div>
+            <div className="row-option item">
+              <img src={clipboard_list} alt="audit icon" />
+              <span>Audit Logs</span>
+            </div>
+            <div className="row-option item">
+              <img src={tire} alt="systems icon" />
+              <span>Systems Messages</span>
+            </div>
+          </div>
 
-      <div className="row-option dashbord logout">
-        <img src={sign_out} alt="sign out icon" />
-        <span>Logout</span>
+          <div className="row-option dashbord logout">
+            <img src={sign_out} alt="sign out icon" />
+            <span>Logout</span>
+          </div>
+          <span className="row-option version">v1.2.0</span>
+        </div>
+      )}
+      <div
+        className={`${!isSidebarOpen && "closed"} sidebar-control`}
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        <img src={prev_btn} alt="close button" />
       </div>
-      <span className="row-option version">v1.2.0</span>
     </div>
   );
 }
