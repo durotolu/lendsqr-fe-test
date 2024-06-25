@@ -1,7 +1,7 @@
 import "./ActionsModal.scss";
-import view from "../../icons/view.svg";
-import activate from "../../icons/activate.svg";
-import blacklist from "../../icons/blacklist.svg";
+import view from "../../../icons/view.svg";
+import activate from "../../../icons/activate.svg";
+import blacklist from "../../../icons/blacklist.svg";
 
 function Actions() {
   return (

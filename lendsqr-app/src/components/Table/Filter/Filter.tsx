@@ -17,7 +17,7 @@ function Filter() {
     <div className="filter-modal">
       <div className="filter-options">
         {fields.map(({label, placeholder, type}) => (
-          <div>
+          <div key={label}>
             <label>{label}</label>
             <div className="input-div">
               <select className="input-field">
