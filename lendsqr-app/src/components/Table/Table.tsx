@@ -69,66 +69,6 @@ function Table({ users }: { users: UserItem[] }) {
               </td>
             </tr>
           ))}
-          {/* <tr>
-            <td>Lendsqr</td>
-            <td>Ernst Handel</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08160780928</td>
-            <td>Apr 30, 2020 10:00 AM</td>
-            <td>
-              <div>
-                <span className="status pending">Pending</span>
-              </div>
-            </td>
-            <td>
-              <img src={grab} alt="grab" />
-            </td>
-          </tr>
-          <tr>
-            <td>Lendsqr</td>
-            <td>Island Trading</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08160780928</td>
-            <td>Apr 30, 2020 10:00 AM</td>
-            <td>
-              <div>
-                <span className="status inactive">Inactive</span>
-              </div>
-            </td>
-            <td>
-              <img src={grab} alt="grab" />
-            </td>
-          </tr>
-          <tr>
-            <td>Lendsqr</td>
-            <td>Laughing Bacchus Winecellars</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08160780928</td>
-            <td>Apr 30, 2020 10:00 AM</td>
-            <td>
-              <div>
-                <span className="status active">Active</span>
-              </div>
-            </td>
-            <td>
-              <img src={grab} alt="grab" />
-            </td>
-          </tr>
-          <tr>
-            <td>Lendsqr</td>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>adedeji@lendsqr.com</td>
-            <td>08160780928</td>
-            <td>Apr 30, 2020 10:00 AM</td>
-            <td>
-              <div>
-                <span className="status blacklisted">Blacklisted</span>
-              </div>
-            </td>
-            <td>
-              <img src={grab} alt="grab" />
-            </td>
-          </tr> */}
         </tbody>
       </table>
       {(userActionOpen || titleFilterOpen) && (

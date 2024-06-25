@@ -28,10 +28,10 @@ function Login() {
 
   return (
     <div className="container">
-      <div className="landing">
         <div className="logo">
           <img src={logo} alt="logo" />
         </div>
+      <div className="landing">
         <div className="wallpaper">
           <img src={wallpaper} alt="wallpaper" />
         </div>
