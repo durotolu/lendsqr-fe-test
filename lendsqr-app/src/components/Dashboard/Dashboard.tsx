@@ -73,7 +73,7 @@ function Dashboard() {
         accountBalance: "₦200,000.00",
         bank: "Providus Bank",
         dateJoined: "Apr 30, 2020 10:00 AM",
-        status: "Pending",
+        status: "Active",
         loans: true,
         savings: true,
         organization: "Lendsqr",

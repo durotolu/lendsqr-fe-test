@@ -55,7 +55,7 @@ function Table({ users }: { users: UserItem[] }) {
               <td>{user.metaData.dateJoined}</td>
               <td>
                 <div>
-                  <span className="status pending">{user.metaData.status}</span>
+                  <span className={`status ${user.metaData.status}`}>{user.metaData.status}</span>
                 </div>
               </td>
               <td>

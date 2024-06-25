@@ -6,6 +6,7 @@
   color: #545F7D;
   border: 1px solid #213F7D0F;
   position: relative;
+  overflow: scroll;
 
   table {
     font-family: arial, sans-serif;
@@ -59,16 +60,16 @@
         color: $color-text;
       }
       
-      .active {
+      .Active {
         @include status-color(rgba(57, 205, 98, .06), rgba(57, 205, 98))
       }
-      .inactive {
+      .Inactive {
         @include status-color(rgba(84, 95, 125, .06), rgba(84, 95, 125))
       }
-      .pending {
+      .Pending {
         @include status-color(rgba(233, 178, 0, .1), rgba(233, 178, 0));
       }
-      .blacklisted {
+      .Blacklisted {
         @include status-color(rgba(228, 3, 59, .1), rgba(228, 3, 59,));
       }
     }
