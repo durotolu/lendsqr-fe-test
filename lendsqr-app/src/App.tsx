@@ -2,24 +2,31 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login/Login";
 import ErrorPage from "./components/ErrorPage";
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
+import UserDetails from "./components/UserDetails/UserDetails";
+import UsersPage from "./components/UserPage/UsersPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <Login />,
-    element: (
-      <div>
-        <Header />
-        <div style={{display: "flex", paddingTop: "108px"}}>
-          <Sidebar />
-          <div style={{padding: "60px", width: "100%" }}><Dashboard /></div>
-        </div>
-      </div>
-    ),
+    element: <Login />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "dashboard",
+    element: (
+      <UsersPage>
+        <Dashboard />
+      </UsersPage>
+    ),
+  },
+  {
+    path: "user",
+    element: (
+      <UsersPage>
+        <UserDetails />
+      </UsersPage>
+    ),
   },
   // {
   //   path: "contacts/:contactId",
