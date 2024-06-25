@@ -68,7 +68,7 @@ function Dashboard() {
       id: "2",
       metaData: {
         code: "LSQFf587g90",
-        tier: "1",
+        tier: "2",
         accountNumber: "9912345678",
         accountBalance: "₦200,000.00",
         bank: "Providus Bank",

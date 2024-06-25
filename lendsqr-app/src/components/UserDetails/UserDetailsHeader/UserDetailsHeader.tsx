@@ -18,9 +18,15 @@ function UserDetailsHeader({ user }: { user: UserItem }) {
           <div className="star-container details-header-right-section">
             <div className="tier-text">User’s Tier</div>
             <div className="stars">
-              <img src={star_filled} alt="Star filled" />
-              <img src={star_empty} alt="Star empty" />
-              <img src={star_empty} alt="Star empty" />
+              {Array(3)
+                .fill(null)
+                .map((_, i) =>
+                  i < parseInt(metaData.tier) ? (
+                    <img src={star_filled} alt="Star filled" />
+                  ) : (
+                    <img src={star_empty} alt="Star empty" />
+                  )
+                )}
             </div>
           </div>
           <div className="details-header-right-section">
