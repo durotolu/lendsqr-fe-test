@@ -54,4 +54,15 @@
       }
     }
   }
+
+  .guarantor {
+    display: flex;
+    padding-top: 79px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(33, 63, 125, .1);
+  }
+}
+
+.guarantor:first-child {
+  padding-top: 30px;
 }
