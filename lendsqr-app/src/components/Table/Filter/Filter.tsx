@@ -9,20 +9,26 @@ function Filter() {
     { label: "Organization", type: "select", placeholder: "Select" },
     { label: "Username", type: "text", placeholder: "User" },
     { label: "Email", type: "text", placeholder: "Email" },
-    { label: "Date", type: "text", placeholder: "Date" },
+    { label: "Date", type: "date", placeholder: "Date" },
     { label: "Phone Number", type: "text", placeholder: "Phone Number" },
     { label: "Status", type: "select", placeholder: "Select" },
   ];
   return (
     <div className="filter-modal">
       <div className="filter-options">
-        {fields.map(({label, placeholder, type}) => (
+        {fields.map(({ label, placeholder, type }) => (
           <div key={label}>
             <label>{label}</label>
             <div className="input-div">
-              <select className="input-field">
-                <option>{placeholder}</option>
-              </select>
+              {type === "text" ? (
+                <input className="input-field" placeholder="User" />
+              ) : type === "select" ? (
+                <select className="input-field">
+                  <option>{placeholder}</option>
+                </select>
+              ) : (
+                <input className="input-field" type="date" placeholder="User" />
+              )}
             </div>
           </div>
         ))}
