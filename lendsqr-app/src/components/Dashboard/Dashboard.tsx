@@ -8,10 +8,11 @@ import users_savings from "../../icons/users-savings.svg";
 import user_stats from "../../utils/users-count";
 import UserItem from "../../types";
 import { useEffect, useState } from "react";
+import formatDate from "../../utils/format-date";
 
 function Dashboard() {
   const [users, setUsers] = useState<UserItem[]>([]);
-  const [filteredusers, setFilteredUsers] = useState<UserItem[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<UserItem[]>([]);
   const [usersPerPage, setUsersPerPage] = useState<number>(0);
   const [filters, setFilters] = useState<{
     organization: string;
@@ -30,7 +31,6 @@ function Dashboard() {
   });
 
   const onFilterSelection = (e: any) => {
-    console.log(e.target.name, e.target.value);
     setFilters({
       ...filters,
       [e.target.name]: e.target.value,
@@ -40,23 +40,51 @@ function Dashboard() {
   const onFilter = () => {
     const { organization, username, email, date, phoneNumber, status } =
       filters;
-    const filtered = users.filter(
-      (user) =>
-        organization &&
-        user.metaData.organization === organization &&
-        user.personalInformation.fullName.toLowerCase().includes(username.toLowerCase()) &&
-        user.personalInformation.email.toLowerCase().includes(email.toLowerCase()) &&
-        // user.metaData.dateJoined === date &&
-        user.personalInformation.phoneNumber.includes(phoneNumber) &&
-        status &&
-        user.metaData.status === status
-    );
 
-    console.log(filtered);
-    // setFilteredUsers(filtered);
+    const filtered = users.filter(
+      (user) => {
+        const organizationFilter = organization
+          ? user.metaData.organization === organization
+          : true;
+        const nameFilter = user.personalInformation.fullName
+          .toLowerCase()
+          .includes(username.toLowerCase());
+        const emailFilter = user.personalInformation.email
+          .toLowerCase()
+          .includes(email.toLowerCase());
+        const dateFilter = date
+          ? user.metaData.dateJoined
+              .toLowerCase()
+              .includes(formatDate(date).toLowerCase())
+          : true;
+        const phoneNumberFilter =
+          user.personalInformation.phoneNumber.includes(phoneNumber);
+        const statusFilter = status ? user.metaData.status === status : true;
+
+        return (
+          organizationFilter &&
+          nameFilter &&
+          emailFilter &&
+          dateFilter &&
+          phoneNumberFilter &&
+          statusFilter
+        );
+      }
+    );
+    setFilteredUsers(filtered);
+    if (filtered.length < usersPerPage) setUsersPerPage(filtered.length);
   };
 
-  const onReset = () => {};
+  const onReset = () => {
+    setFilters({
+      organization: "",
+      username: "",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    });
+  };
 
   async function fetchUsers() {
     try {
@@ -68,7 +96,7 @@ function Dashboard() {
       setFilteredUsers(usersData);
       setUsersPerPage(10);
     } catch (error) {
-      throw error;
+      throw "Failed to fetch user data, check your connection and try again";
     }
   }
 
@@ -102,7 +130,7 @@ function Dashboard() {
       <div className="table-container">
         <Table
           itemsPerPage={usersPerPage}
-          users={filteredusers}
+          users={filteredUsers}
           onFilterSelection={onFilterSelection}
           onFilter={onFilter}
           onReset={onReset}
@@ -110,7 +138,7 @@ function Dashboard() {
         <div className="item-details">
           Showing{" "}
           <select
-            disabled={!filteredusers.length}
+            disabled={!filteredUsers.length}
             value={usersPerPage}
             onChange={(e) => setUsersPerPage(parseInt(e.target.value))}
           >
@@ -124,7 +152,7 @@ function Dashboard() {
             <option value={25}>25</option>
             <option value={30}>30</option>
           </select>
-          out of {totalUsers}
+          out of {filteredUsers.length}
         </div>
       </div>
     </div>

@@ -52,6 +52,7 @@ function Filter({
               {type === "date" ? (
                 <input
                   className="input-field"
+                  name={name}
                   type="date"
                   placeholder={placeholder}
                   onChange={onFilterSelection}
