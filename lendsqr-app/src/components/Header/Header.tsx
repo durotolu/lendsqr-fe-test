@@ -22,7 +22,7 @@ function Header() {
       <div>
         <div className="profile-nav">
           <div>
-            <a>Docs</a>
+            <a href="/#">Docs</a>
           </div>
           <div>
             <img src={notification} alt="notification bell" />

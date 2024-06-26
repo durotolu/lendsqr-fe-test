@@ -38,12 +38,12 @@ function UserDetailsHeader({ user }: { user: UserItem }) {
         </div>
       </div>
       <nav>
-        <a className="active-nav">General Details</a>
-        <a>Documents</a>
-        <a>Bank Details</a>
-        <a>Loans</a>
-        <a>Savings</a>
-        <a>App and System</a>
+        <a href="/#" className="active-nav">General Details</a>
+        <a href="/#">Documents</a>
+        <a href="/#">Bank Details</a>
+        <a href="/#">Loans</a>
+        <a href="/#">Savings</a>
+        <a href="/#">App and System</a>
       </nav>
     </div>
   );
