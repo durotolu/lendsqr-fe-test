@@ -5,9 +5,9 @@ import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 
 function UsersPage({ children }: { children: ReactNode }) {
-  const user = localStorage.getItem("lendsqrUserEmail");
+  const userLoggedIn = localStorage.getItem("lendsqrUserEmail");
   
-  if (!user) return <Navigate replace to="/" />;
+  if (!userLoggedIn) return <Navigate replace to="/" />;
   return (
     <div>
       <Header />

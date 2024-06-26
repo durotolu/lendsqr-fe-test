@@ -8,6 +8,12 @@ import UserItem from "../../../types";
 function Actions({ user }: { user: UserItem }) {
   const navigate = useNavigate();
 
+  const actionOptions = {
+    Pending: ["Blacklist User", "Activate User"],
+    Active: ["Blacklist User", "Inactivate User"],
+    Inactive: ["Blacklist User", "Activate User"],
+    Blacklisted: ["Inactivate User", "Activate User"],
+  };
   const goToUserDetails = async () => {
     await localStorage.setItem("lendsqrUserData", JSON.stringify(user));
     const userRaw = await localStorage.getItem("lendsqrUserData");
@@ -25,14 +31,15 @@ function Actions({ user }: { user: UserItem }) {
           <img src={view} alt="view" />
           View Details
         </li>
-        <li>
-          <img src={blacklist} alt="blacklist" />
-          Blacklist User
-        </li>
-        <li>
-          <img src={activate} alt="activate" />
-          Activate User
-        </li>
+
+        {actionOptions[user.metaData.status as keyof typeof actionOptions].map(
+          (action) => (
+            <li>
+              <img src={blacklist} alt={action} />
+              {action}
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
