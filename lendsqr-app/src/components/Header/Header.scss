@@ -1,11 +1,12 @@
+$breakPointTab: 1070px;
 
 header {
   display: flex;
-  justify-content: space-between;
   padding: 26px;
   align-items: center;
   position: fixed;
-  width: calc(100vw - 80px);
+  width: 100%;
+  box-sizing: border-box;
   z-index: 4;
   background: white;
   box-shadow: 3px 0px 20px 0px #0000000A;
@@ -45,7 +46,7 @@ header {
 
 
   .search {
-    width: 400px;
+    max-width: 400px;
     height: 40px;
     top: 30px;
     left: 343px;
@@ -57,6 +58,7 @@ header {
     font-weight: 400;
     line-height: 16.42px;
     text-align: left;
+    box-sizing: border-box;
   }
 
   input {
@@ -75,20 +77,64 @@ header {
     box-sizing: border-box;
   }
 
-  .profile-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-left: auto;
-    width: 40%;
-
-    a {
-      text-decoration: underline;
-      color: rgba(33, 63, 125, 1);
+  .profile-right {
+    justify-content: flex-end;
+    @media (max-width: $breakPointTab) {
+      justify-content: center;
     }
 
-    .profile-name {
-      margin: 0 10px;
+    .profile-nav {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 40%;
+  
+      a {
+        text-decoration: underline;
+        color: rgba(33, 63, 125, 1);
+      }
+  
+      .profile-name {
+        margin: 0 10px;
+      }
     }
   }
 
+  .dropdown {
+    cursor: pointer;
+  }
+
+  .popup-profile {
+    background: #fff;
+    border-radius: 5px;
+    transition: all 5s ease-in-out;
+    z-index: 6;
+    border: 1px solid rgba(84, 95, 125, 0.04);
+    box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+    right: -20px;
+    width: 180px;
+  
+    div {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+  }
 }
