@@ -2,7 +2,6 @@ import UserItem from "../../../types";
 import "./UserDetailsInfo.scss";
 
 function UserDetailsInfo({ user }: { user: UserItem }) {
-  console.log(user);
   const title = {
     fullName: "FULL NAME",
     phoneNumber: "PHONE NUMBER",

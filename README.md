@@ -6,7 +6,7 @@ The app should allow the user to see a list of users and manipulate data
 > View individual user.
 
 
-## Built with React, SASS, Hooks
+## Built with React, SASS, Hooks and TypeScript
 
 ## Install
 

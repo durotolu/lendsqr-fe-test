@@ -1,10 +1,11 @@
+import { useState } from "react";
+import ReactPaginate from 'react-paginate';
 import "./Table.scss";
 import filter from "../../icons/filter-results-button.svg";
 import grab from "../../icons/more.svg";
 import Actions from "./ActionsModal/ActionsModal";
 import Filter from "./Filter/Filter";
 import UserItem from "../../types";
-import { useState } from "react";
 
 const headers: string[] = [
   "organization",
@@ -15,7 +16,7 @@ const headers: string[] = [
   "Status",
 ];
 
-function Table({ users }: { users: UserItem[] }) {
+function Items({ currentItems }: { currentItems: UserItem[] }) {
   const [userActionOpen, setUserActionOpen] = useState<string | null>(null);
   const [titleFilterOpen, setTitleFilterOpen] = useState<string | null>(null);
 
@@ -46,7 +47,7 @@ function Table({ users }: { users: UserItem[] }) {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {currentItems.map((user) => (
             <tr key={user.id}>
               <td>{user.metaData.organization}</td>
               <td>{user.personalInformation.fullName}</td>
@@ -75,6 +76,39 @@ function Table({ users }: { users: UserItem[] }) {
         <div className="modal-backdrop" onClick={closeModals}></div>
       )}
     </div>
+  );
+}
+
+function Table({ itemsPerPage, users }: { itemsPerPage: number, users: UserItem[] }) {
+  const [itemOffset, setItemOffset] = useState(0);
+  
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = users.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(users.length / itemsPerPage);
+
+  const handlePageClick = (event: { selected: number; }) => {
+    const newOffset = (event.selected * itemsPerPage) % users.length;
+    setItemOffset(newOffset);
+  };
+
+  return (
+    <>
+      <Items currentItems={currentItems} />
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="<"
+        containerClassName={"pagination-container"}
+        previousClassName={"pagination-previous"}
+        nextClassName={"pagination-next"}
+        activeLinkClassName={"pagination-active"}
+        disabledLinkClassName={'pagination-disabled'}
+        pageClassName={'pagination-page'}
+      />
+    </>
   );
 }
 

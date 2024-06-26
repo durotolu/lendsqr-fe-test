@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 function Dashboard() {
   const [users, setUsers] = useState<UserItem[]>([]);
+  const [usersPerPage, setUsersPerPage] = useState<number>(0);
 
   async function fetchUsers() {
     try {
@@ -19,6 +20,7 @@ function Dashboard() {
       const response = await fetch(api);
       const usersData = await response.json();
       setUsers(usersData);
+      setUsersPerPage(10);
     } catch (error) {
       throw error;
     }
@@ -51,7 +53,22 @@ function Dashboard() {
           count={savingsUsers}
         />
       </div>
-      <Table users={users} />
+      <div className="table-container">
+        <Table itemsPerPage={usersPerPage} users={users} />
+        <div className="item-details">
+          Showing{" "}
+            <select disabled={!users.length} value={usersPerPage} onChange={(e) => setUsersPerPage(parseInt(e.target.value))}>
+              <option defaultValue="" disabled hidden>0</option>
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+              <option value={25}>25</option>
+              <option value={30}>30</option>
+            </select>
+          out of {totalUsers}
+        </div>
+      </div>
     </div>
   );
 }
