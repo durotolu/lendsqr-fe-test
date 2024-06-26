@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./Login.scss";
 import wallpaper from "../../icons/wallpaper.svg";
 import logo from "../../icons/logo.svg";
@@ -25,6 +25,10 @@ function Login() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const userLoggedIn = localStorage.getItem("lendsqrUserEmail");
+  
+  if (userLoggedIn) return <Navigate replace to="/dashboard" />;
 
   return (
     <div className="container">
