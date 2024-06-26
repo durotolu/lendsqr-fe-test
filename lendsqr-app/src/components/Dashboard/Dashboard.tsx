@@ -13,14 +13,19 @@ function Dashboard() {
   const [users, setUsers] = useState<UserItem[]>([]);
 
   async function fetchUsers() {
-    const api = 'https://run.mocky.io/v3/3b2a9ecd-1ca9-431c-a9c5-bb31174db0a1';
-    const response = await fetch(api);
-    const usersData = await response.json();
-    setUsers(usersData)
+    try {
+      const api =
+        "https://run.mocky.io/v3/3b2a9ecd-1ca9-431c-a9c5-bb31174db0a1";
+      const response = await fetch(api);
+      const usersData = await response.json();
+      setUsers(usersData);
+    } catch (error) {
+      throw error;
+    }
   }
 
   useEffect(() => {
-    fetchUsers()
+    fetchUsers();
   }, []);
 
   const [totalUsers, activeUsers, loansUsers, savingsUsers] = user_stats(users);
