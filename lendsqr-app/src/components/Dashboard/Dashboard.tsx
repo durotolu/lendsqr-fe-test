@@ -109,7 +109,7 @@ function Dashboard() {
   return (
     <div className="dashbord">
       <h2>Users</h2>
-      <>
+      <div className="cards">
         <UserCard icon={users_normal} name={"USERS"} count={totalUsers} />
         <UserCard
           icon={users_active}
@@ -126,7 +126,7 @@ function Dashboard() {
           name={"Users with Savings"}
           count={savingsUsers}
         />
-      </>
+      </div>
       <div className="table-container">
         <Table
           itemsPerPage={usersPerPage}
