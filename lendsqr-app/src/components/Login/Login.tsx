@@ -62,7 +62,6 @@ function Login() {
           <button
             type="submit"
             disabled={!userData.email || !userData.password}
-            // onClick={login}
           >
             LOG IN
           </button>
