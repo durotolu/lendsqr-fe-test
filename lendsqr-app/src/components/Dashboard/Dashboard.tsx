@@ -1,5 +1,5 @@
 import "./Dashboard.scss";
-import UsersCard from "../UsersCard/UsersCard";
+import UserCard from "../UserCard/UserCard";
 import Table from "../Table/Table";
 import users_normal from "../../icons/users-normal.svg";
 import users_active from "../../icons/users-active.svg";
@@ -96,7 +96,7 @@ function Dashboard() {
       setFilteredUsers(usersData);
       setUsersPerPage(10);
     } catch (error) {
-      throw "Failed to fetch user data, check your connection and try again";
+      throw error;
     }
   }
 
@@ -109,24 +109,24 @@ function Dashboard() {
   return (
     <div className="dashbord">
       <h2>Users</h2>
-      <div className="cards">
-        <UsersCard icon={users_normal} name={"USERS"} count={totalUsers} />
-        <UsersCard
+      <>
+        <UserCard icon={users_normal} name={"USERS"} count={totalUsers} />
+        <UserCard
           icon={users_active}
           name={"Active Users"}
           count={activeUsers}
         />
-        <UsersCard
+        <UserCard
           icon={users_loan}
           name={"Users with Loans"}
           count={loansUsers}
         />
-        <UsersCard
+        <UserCard
           icon={users_savings}
           name={"Users with Savings"}
           count={savingsUsers}
         />
-      </div>
+      </>
       <div className="table-container">
         <Table
           itemsPerPage={usersPerPage}

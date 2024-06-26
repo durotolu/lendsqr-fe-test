@@ -14,6 +14,11 @@ function Actions({ user }: { user: UserItem }) {
     Inactive: ["Blacklist User", "Activate User"],
     Blacklisted: ["Inactivate User", "Activate User"],
   };
+
+  const actionIcons = {
+    "Activate User": activate,
+    "Blacklist User": blacklist,
+  };
   const goToUserDetails = async () => {
     await localStorage.setItem("lendsqrUserData", JSON.stringify(user));
     const userRaw = await localStorage.getItem("lendsqrUserData");
@@ -35,7 +40,7 @@ function Actions({ user }: { user: UserItem }) {
         {actionOptions[user.metaData.status as keyof typeof actionOptions].map(
           (action) => (
             <li key={action}>
-              <img src={blacklist} alt={action} />
+              <img src={actionIcons[action as keyof typeof actionIcons]} alt={action} />
               {action}
             </li>
           )

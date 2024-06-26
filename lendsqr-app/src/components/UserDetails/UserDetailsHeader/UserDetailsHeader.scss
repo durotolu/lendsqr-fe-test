@@ -93,6 +93,7 @@ $breakPointTab: 950px;
     
     a {
       padding: 0 25px;
+      text-decoration: none;
 
       @media (max-width: $breakPointMobile) {
         padding: 20px 10px;

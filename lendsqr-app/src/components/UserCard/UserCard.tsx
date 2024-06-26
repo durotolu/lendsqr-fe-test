@@ -1,4 +1,4 @@
-import "./UsersCard.scss";
+import "./UserCard.scss";
 
 function UserCard({
   icon,
