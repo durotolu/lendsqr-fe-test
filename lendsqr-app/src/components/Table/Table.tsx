@@ -1,5 +1,5 @@
-import { useState } from "react";
-import ReactPaginate from 'react-paginate';
+import { ChangeEventHandler, useState } from "react";
+import ReactPaginate from "react-paginate";
 import "./Table.scss";
 import filter from "../../icons/filter-results-button.svg";
 import grab from "../../icons/more.svg";
@@ -16,7 +16,17 @@ const headers: string[] = [
   "Status",
 ];
 
-function Items({ currentItems }: { currentItems: UserItem[] }) {
+function Items({
+  currentItems,
+  onFilterSelection,
+  onFilter,
+  onReset,
+}: {
+  currentItems: UserItem[];
+  onFilterSelection: ChangeEventHandler<HTMLElement>;
+  onFilter: () => void;
+  onReset: () => void;
+}) {
   const [userActionOpen, setUserActionOpen] = useState<string | null>(null);
   const [titleFilterOpen, setTitleFilterOpen] = useState<string | null>(null);
 
@@ -40,7 +50,13 @@ function Items({ currentItems }: { currentItems: UserItem[] }) {
                   >
                     <img src={filter} alt="filter" />
                   </button>
-                  {header === titleFilterOpen && <Filter />}
+                  {header === titleFilterOpen && (
+                    <Filter
+                      onFilterSelection={onFilterSelection}
+                      onFilter={onFilter}
+                      onReset={onReset}
+                    />
+                  )}
                 </div>
               </th>
             ))}
@@ -56,7 +72,9 @@ function Items({ currentItems }: { currentItems: UserItem[] }) {
               <td>{user.metaData.dateJoined}</td>
               <td>
                 <div>
-                  <span className={`status ${user.metaData.status}`}>{user.metaData.status}</span>
+                  <span className={`status ${user.metaData.status}`}>
+                    {user.metaData.status}
+                  </span>
                 </div>
               </td>
               <td>
@@ -79,21 +97,38 @@ function Items({ currentItems }: { currentItems: UserItem[] }) {
   );
 }
 
-function Table({ itemsPerPage, users }: { itemsPerPage: number, users: UserItem[] }) {
+function Table({
+  itemsPerPage,
+  users,
+  onFilterSelection,
+  onFilter,
+  onReset,
+}: {
+  itemsPerPage: number;
+  users: UserItem[];
+  onFilterSelection: ChangeEventHandler<HTMLElement>;
+  onFilter: () => void;
+  onReset: () => void;
+}) {
   const [itemOffset, setItemOffset] = useState(0);
-  
+
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = users.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(users.length / itemsPerPage);
 
-  const handlePageClick = (event: { selected: number; }) => {
+  const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % users.length;
     setItemOffset(newOffset);
   };
 
   return (
     <>
-      <Items currentItems={currentItems} />
+      <Items
+        onFilterSelection={onFilterSelection}
+        onFilter={onFilter}
+        onReset={onReset}
+        currentItems={currentItems}
+      />
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
@@ -105,8 +140,8 @@ function Table({ itemsPerPage, users }: { itemsPerPage: number, users: UserItem[
         previousClassName={"pagination-previous"}
         nextClassName={"pagination-next"}
         activeLinkClassName={"pagination-active"}
-        disabledLinkClassName={'pagination-disabled'}
-        pageClassName={'pagination-page'}
+        disabledLinkClassName={"pagination-disabled"}
+        pageClassName={"pagination-page"}
       />
     </>
   );

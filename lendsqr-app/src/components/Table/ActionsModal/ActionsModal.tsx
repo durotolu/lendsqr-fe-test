@@ -34,7 +34,7 @@ function Actions({ user }: { user: UserItem }) {
 
         {actionOptions[user.metaData.status as keyof typeof actionOptions].map(
           (action) => (
-            <li>
+            <li key={action}>
               <img src={blacklist} alt={action} />
               {action}
             </li>

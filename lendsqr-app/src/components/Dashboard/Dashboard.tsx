@@ -11,7 +11,52 @@ import { useEffect, useState } from "react";
 
 function Dashboard() {
   const [users, setUsers] = useState<UserItem[]>([]);
+  const [filteredusers, setFilteredUsers] = useState<UserItem[]>([]);
   const [usersPerPage, setUsersPerPage] = useState<number>(0);
+  const [filters, setFilters] = useState<{
+    organization: string;
+    username: string;
+    email: string;
+    date: string;
+    phoneNumber: string;
+    status: string;
+  }>({
+    organization: "",
+    username: "",
+    email: "",
+    date: "",
+    phoneNumber: "",
+    status: "",
+  });
+
+  const onFilterSelection = (e: any) => {
+    console.log(e.target.name, e.target.value);
+    setFilters({
+      ...filters,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const onFilter = () => {
+    const { organization, username, email, date, phoneNumber, status } =
+      filters;
+    const filtered = users.filter(
+      (user) =>
+        organization &&
+        user.metaData.organization === organization &&
+        user.personalInformation.fullName.toLowerCase().includes(username.toLowerCase()) &&
+        user.personalInformation.email.toLowerCase().includes(email.toLowerCase()) &&
+        // user.metaData.dateJoined === date &&
+        user.personalInformation.phoneNumber.includes(phoneNumber) &&
+        status &&
+        user.metaData.status === status
+    );
+
+    console.log(filtered);
+    // setFilteredUsers(filtered);
+  };
+
+  const onReset = () => {};
 
   async function fetchUsers() {
     try {
@@ -20,6 +65,7 @@ function Dashboard() {
       const response = await fetch(api);
       const usersData = await response.json();
       setUsers(usersData);
+      setFilteredUsers(usersData);
       setUsersPerPage(10);
     } catch (error) {
       throw error;
@@ -54,18 +100,30 @@ function Dashboard() {
         />
       </div>
       <div className="table-container">
-        <Table itemsPerPage={usersPerPage} users={users} />
+        <Table
+          itemsPerPage={usersPerPage}
+          users={filteredusers}
+          onFilterSelection={onFilterSelection}
+          onFilter={onFilter}
+          onReset={onReset}
+        />
         <div className="item-details">
           Showing{" "}
-            <select disabled={!users.length} value={usersPerPage} onChange={(e) => setUsersPerPage(parseInt(e.target.value))}>
-              <option defaultValue="" disabled hidden>0</option>
-              <option value={5}>5</option>
-              <option value={10}>10</option>
-              <option value={15}>15</option>
-              <option value={20}>20</option>
-              <option value={25}>25</option>
-              <option value={30}>30</option>
-            </select>
+          <select
+            disabled={!filteredusers.length}
+            value={usersPerPage}
+            onChange={(e) => setUsersPerPage(parseInt(e.target.value))}
+          >
+            <option defaultValue="" disabled hidden>
+              0
+            </option>
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={15}>15</option>
+            <option value={20}>20</option>
+            <option value={25}>25</option>
+            <option value={30}>30</option>
+          </select>
           out of {totalUsers}
         </div>
       </div>
