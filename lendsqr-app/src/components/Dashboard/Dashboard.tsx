@@ -89,7 +89,7 @@ function Dashboard() {
   async function fetchUsers() {
     try {
       const api =
-        "https://run.mocky.io/v3/3b2a9ecd-1ca9-431c-a9c5-bb31174db0a1";
+        "https://run.mocky.io/v3/d21c9397-bbb6-4f66-beb6-01bdf1a602b5";
       const response = await fetch(api);
       const usersData = await response.json();
       setUsers(usersData);
